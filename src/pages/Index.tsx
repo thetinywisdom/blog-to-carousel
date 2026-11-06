@@ -38,11 +38,21 @@ const Index = () => {
     setSelectedIconUrl(null);
 
     try {
+      if (!supabase) {
+        throw new Error(
+          "URL import needs the external Supabase function parse-article. GitHub Pages only hosts this static app, and that function is not configured. Use Paste Text instead.",
+        );
+      }
+
       const { data, error: fnError } = await supabase.functions.invoke("parse-article", {
         body: { url, mode },
       });
 
-      if (fnError) throw new Error(fnError.message);
+      if (fnError) {
+        throw new Error(
+          `${fnError.message} URL import calls the external Supabase function parse-article, which GitHub Pages does not host. Paste Text still works on this site.`,
+        );
+      }
       if (!data.success) throw new Error(data.error || "Failed to process article");
 
       setArticleData(data);
