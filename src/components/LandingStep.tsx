@@ -71,6 +71,9 @@ export const LandingStep = ({ onProcess, onProcessText, isLoading, error }: Land
                     required
                     disabled={isLoading}
                   />
+                  <p className="text-xs mt-1.5" style={{ color: 'hsl(var(--muted-foreground))' }}>
+                    URL import calls the external Supabase function parse-article. GitHub Pages does not host that function. If it is unavailable, use Paste Text.
+                  </p>
                 </div>
 
                 {/* Mode selector */}
