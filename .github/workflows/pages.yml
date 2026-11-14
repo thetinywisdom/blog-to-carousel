@@ -2,7 +2,8 @@
 # Dependencies are installed on the runner and are not committed.
 # No repository secrets are used. Vite reads the existing publishable
 # client values from .env when that file is present. Do not add a
-# service-role key or a custom domain in this workflow.
+# service-role key. This workflow does not call the Pages API to set a
+# custom domain; public/CNAME is copied into the build output.
 
 name: Deploy to GitHub Pages
 
