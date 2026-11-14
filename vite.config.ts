@@ -4,8 +4,9 @@ import fs from "fs";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// Project site: https://thetinywisdom.github.io/blog-to-carousel/
-const pagesBase = "/blog-to-carousel/";
+// Custom domain serves the site at the domain root:
+// https://slides.thetinywisdom.com/
+const pagesBase = "/";
 
 // GitHub Pages has no SPA rewrite. Unknown paths serve 404.html, so the
 // production build copies index.html there and skips Jekyll processing.
